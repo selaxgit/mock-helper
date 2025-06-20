@@ -1,0 +1,17 @@
+<div class="drop-method-container" [dropMethodToMethod]="idx"></div>
+<button matIconButton color="primary" matTooltip="Проверить метод" (click)="onSend()">
+  <mat-icon>send</mat-icon>
+</button>
+<div class="flex-col flex-auto ml-10">
+  <div>
+    <strong>{{ request }}:</strong>&nbsp;/{{ method }}
+  </div>
+  <div>{{ name }}</div>
+</div>
+<div><strong>Статус:</strong>&nbsp;{{ status }}</div>
+<button class="ml-20" matIconButton color="primary" matTooltip="Редактировать метод" (click)="onEdit()">
+  <mat-icon>edit</mat-icon>
+</button>
+<button matIconButton color="accent" matTooltip="Удалить метод" (click)="onRemove()">
+  <mat-icon>cancel</mat-icon>
+</button>

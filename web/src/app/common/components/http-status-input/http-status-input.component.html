@@ -1,0 +1,13 @@
+<mat-form-field appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <input type="text" required matInput [formControl]="formControl" [matAutocomplete]="autoGroup" />
+  <mat-autocomplete #autoGroup="matAutocomplete" panelWidth="auto">
+    @for (group of statusesGroupsOptions | async; track group.group) {
+      <mat-optgroup [label]="group.group">
+        @for (item of group.values; track item.value) {
+          <mat-option [value]="item.value">{{ item.title }}</mat-option>
+        }
+      </mat-optgroup>
+    }
+  </mat-autocomplete>
+</mat-form-field>

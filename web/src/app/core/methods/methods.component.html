@@ -1,0 +1,36 @@
+<mat-card class="with-header-line flex-auto" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> {{ mockPrefix }}{{ storeService.currentSection()?.url ?? '' }} </mat-card-title>
+    <button class="ml-10" matIconButton color="primary" matTooltip="Добавить метод" (click)="onAddMethod()">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="drop-method-container up-border" [dropMethodToMethod]="-1"></div>
+    <div class="scroll-container">
+      <div class="scroll">
+        @for (method of storeService.methodsList(); track method.id; let idx = $index) {
+          <method-item
+            [idx]="idx"
+            [dragMethod]="method"
+            [dragMethodIdx]="idx"
+            [method]="method.method"
+            [name]="method.name"
+            [request]="method.request"
+            [status]="method.status"
+            (editEvent)="onEditMethod(method)"
+            (sendEvent)="onSendMethod(method)"
+            (removeEvent)="onRemoveMethod(method.id)"
+          ></method-item>
+        } @empty {
+          <div class="empty-message">Нет данных</div>
+        }
+        @if (storeService.isLoadingMethods()) {
+          <div class="loading-container">
+            <mat-spinner></mat-spinner>
+          </div>
+        }
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

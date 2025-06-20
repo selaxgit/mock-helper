@@ -1,0 +1,36 @@
+@use "colors";
+
+:host {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 2px dotted transparent;
+  &:hover {
+    background-color: colors.$element-hover-color;
+  }
+  &.selected {
+    color: colors.$white;
+    background-color: colors.$selected-color;
+    .title-url {
+      color: colors.$white;
+    }
+    .mat-icon {
+      color: colors.$white;
+    }
+  }
+  &.can-drop-method {
+    border: 2px dotted colors.$warning-color;
+  }
+}
+
+.item-title {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-url {
+  font-size: 12px;
+  color: #5f9ea0;
+}

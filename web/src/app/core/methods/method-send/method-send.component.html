@@ -1,0 +1,41 @@
+@if (isProcessing()) {
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+}
+<div class="head">
+  <div class="head-title">Проверка метода</div>
+  <button matIconButton color="accent" (click)="onClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div class="content">
+  <div class="flex-row">
+    <div class="flex-auto">
+      <strong>{{ request }}:&nbsp;</strong>
+      {{ url }}
+    </div>
+    <strong>Статус:&nbsp;</strong>
+    {{ status }}
+  </div>
+  <fieldset class="flex-auto mt-10">
+    <legend>Правильный ответ</legend>
+    <div class="scroll-container">
+      <div class="scroll">
+        <pre>{{ response | json }}</pre>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="flex-auto mt-10">
+    <legend>Ответ сервера (статус: {{ serverStatus() }})</legend>
+    <div class="scroll-container">
+      <div class="scroll">
+        <pre>{{ serverResponse() | json }}</pre>
+      </div>
+    </div>
+    <button class="mt-10" matButton="tonal" color="primary" (click)="onSend()">Отправить запрос</button>
+  </fieldset>
+</div>
+<div class="footer">
+  <button class="ml-10" matButton="tonal" color="accent" (click)="onClose()">Закрыть</button>
+</div>

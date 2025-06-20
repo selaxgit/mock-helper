@@ -1,0 +1,14 @@
+@use "colors";
+
+:host {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid colors.$blue;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}

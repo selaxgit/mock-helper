@@ -1,0 +1,16 @@
+<div class="jst-modal-container">
+  <div class="container">
+    <div>
+      <jst-input label="Наименование раздела" [formControl]="controlName"></jst-input>
+    </div>
+    <div class="mt-16">
+      <jst-input label="УРЛ раздела" [formControl]="controlUrl">
+        <ng-container JSTTextPrefix>{{ mockPrefix }}</ng-container>
+      </jst-input>
+    </div>
+  </div>
+  <div class="jst-modal-footer-buttons">
+    <button mat-raised-button color="primary" (click)="onApply()">Сохранить</button>
+    <button mat-raised-button color="accent" (click)="onClose()">Закрыть</button>
+  </div>
+</div>

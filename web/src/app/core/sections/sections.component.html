@@ -1,0 +1,41 @@
+<mat-card class="with-header-line flat-content flex-auto" appearance="outlined">
+  <mat-card-header>
+    <div class="logo-image" mat-card-avatar></div>
+    <mat-card-title> Mock helper </mat-card-title>
+    <mat-card-subtitle>v{{ version }} &copy; 2025</mat-card-subtitle>
+    <button matIconButton color="primary" matTooltip="Перейти в корень разделов" (click)="onSelectSection(null)">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button class="ml-10" matIconButton color="primary" matTooltip="Добавить раздел" (click)="onAddSection()">
+      <mat-icon>playlist_add</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="drop-section-container up-border" [dropSection]="-1"></div>
+    <div class="scroll-container">
+      <div class="scroll">
+        @for (section of storeService.sectionsList(); track section.id; let idx = $index) {
+          <section-item
+            [idx]="idx"
+            [dragSection]="idx"
+            [dropMethodToSection]="section.id"
+            [sectionName]="section.name"
+            [sectionUrl]="section.url"
+            [class.selected]="section.id === storeService.currentSection()?.id"
+            (clickEvent)="onSelectSection(section)"
+            (editEvent)="onEditSection(section)"
+            (removeEvent)="onRemoveSection(section.id)"
+          ></section-item>
+        } @empty {
+          <div class="empty-message">Нет данных</div>
+        }
+
+        @if (storeService.isLoadingSections()) {
+          <div class="loading-container">
+            <mat-spinner></mat-spinner>
+          </div>
+        }
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,34 @@
+@if (isProcessing()) {
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+}
+<div class="head">
+  <div class="head-title">{{ title }}</div>
+  <button matIconButton color="accent" (click)="onClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div class="content">
+  <div class="flex-row mt-10">
+    <div class="w-http-method">
+      <jst-select label="HTTP запрос" [options]="httpMethodsList" [formControl]="controlRequest"></jst-select>
+    </div>
+    <div class="ml-10 w-http-status">
+      <http-status-input label="Статус ответа" [(value)]="constrolStatus"></http-status-input>
+    </div>
+    <div class="flex-auto ml-10">
+      <jst-input label="Метод" [formControl]="controlMethod">
+        <ng-container JSTTextPrefix>{{ mockPrefix }}{{ sectionName ? sectionName + '/' : '' }}</ng-container>
+      </jst-input>
+    </div>
+  </div>
+  <div class="mt-20">
+    <jst-input label="Наименование/описание метода" [formControl]="controlName"> </jst-input>
+  </div>
+  <div #jsonElement class="flex-auto mt-20"></div>
+</div>
+<div class="footer">
+  <button mat-button color="accent" (click)="onClose()">Отмена</button>
+  <button class="ml-10" matButton="tonal" color="primary" (click)="onApply()">Сохранить</button>
+</div>

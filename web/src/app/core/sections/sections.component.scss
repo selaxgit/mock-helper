@@ -1,0 +1,22 @@
+:host {
+  --mat-card-subtitle-text-size: 11px;
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+}
+
+.logo-image {
+  height: 30px;
+  border-radius: 0;
+  background-image: url("/assets/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 0;
+}
+
+section-item {
+  margin-top: 0px;
+  &:first-child {
+    margin-top: 0;
+  }
+}

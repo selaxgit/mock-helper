@@ -1,0 +1,14 @@
+{
+  "type": "sqlite",
+  "database": "db/mock-helper.sqlite",
+  "synchronize": true,
+  "logging": false,
+  "entities": ["src/**/*.entity.ts", "dist/**/*.entity.js"],
+  "migrations": ["migration/**/*.ts"],
+  "subscribers": ["src/subscriber/**/*.ts", "dist/subscriber/**/.js"],
+  "cli": {
+    "entitiesDir": "src",
+    "migrationsDir": "migration",
+    "subscribersDir": "subscriber"
+  }
+}

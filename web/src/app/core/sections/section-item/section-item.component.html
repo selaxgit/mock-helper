@@ -1,0 +1,11 @@
+<div class="drop-section-container" [dropSection]="idx"></div>
+<div class="item-title">
+  <div>{{ sectionName }}</div>
+  <div class="title-url">{{ mockPrefix }}{{ sectionUrl }}</div>
+</div>
+<button matIconButton color="primary" matTooltip="Редактировать раздел" (click)="onEdit($event)">
+  <mat-icon>edit</mat-icon>
+</button>
+<button matIconButton color="accent" matTooltip="Удалить раздел" (click)="onRemove($event)">
+  <mat-icon>cancel</mat-icon>
+</button>
