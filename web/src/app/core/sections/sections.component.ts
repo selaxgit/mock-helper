@@ -65,7 +65,7 @@ export class SectionsComponent implements OnInit {
   private editSection(data: ISection | null = null): void {
     const title = data?.id ? 'Редактирование раздела' : 'Добавление раздела';
     this.jstDialogService
-      .showModal<ISection | null>(title, SectionEditComponent, data ?? {})
+      .showModal<ISection | null>(title, SectionEditComponent, { name: data?.name ?? null, url: data?.url ?? null })
       .subscribe((value: ISection | null) => {
         if (value) {
           if (data?.id) {
